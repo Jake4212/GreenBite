@@ -1,0 +1,1014 @@
+/* ===== GLOBAL STYLES ===== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Glacial Indifference", sans-serif;
+      color: white;
+      background-color: #161619;
+      overflow-x: hidden;
+    }
+    /* ===== LOADING SCREEN STYLES ===== */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161619;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease-out, visibility 1s;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-content {
+  text-align: center;
+  color: white;
+}
+
+.loading-logo {
+  max-width: 150px;
+  margin-bottom: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #2dffff;
+  margin: 0 auto 1.5rem;
+  animation: spin 1s ease-in-out infinite;
+}
+
+#loading-screen p {
+  font-family: "Glacial Indifference", sans-serif;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: #a6c0af;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+    /* ===== NAVIGATION STYLES ===== */
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      position: fixed;
+      top: 15px;
+      right: 25px;
+      z-index: 9999;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .mobile-nav-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      display: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+    }
+
+    .navbar {
+      padding: 1rem 2rem;
+      display: flex;
+      width: 96%;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1), opacity 0.5s, visibility 0.5s;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .navbar.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .navbar.hide {
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .navbar .logo {
+      max-width: 100px;
+      height: auto;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: 200;
+    }
+
+    .navbar a:hover {
+      background: linear-gradient(to right, #2dffff 0%, #f9f047 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ===== HOME SECTION STYLES ===== */
+    #home {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #home::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); 
+      z-index: 1;
+    }
+
+    #home > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    #home h1 {
+      color:white;
+      font-family:"Sorts Mill Goudy";
+      font-size: 4em;
+      text-align: center;
+      font-weight: 200;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0%;
+    }
+
+    /* ===== ABOUT SECTION STYLES ===== */
+    #about {
+      height: auto;
+      display: flex;
+      background-color: #161619;
+      overflow: hidden;
+    }
+
+    #left{
+      flex: 1;
+      width: 100%;
+    }
+
+    #left h2 {
+      color: #a6c0af;
+      margin-left: 70px;
+      margin-top: 150px;
+      font-weight: 200;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 3em;
+      text-align: justify;
+    }
+
+    #left p {
+      color: #a6c0af;
+      margin-left: 180px;
+      margin-top: 20px;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.1em;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    #right{
+      flex: 1;
+      width: 100%;
+    }
+
+    #right img {
+      max-width: 70%;
+      margin-top: 15%;
+      margin-left: 15%;
+      align-content: center;
+      border-radius: 70px;
+    }
+
+    /* ===== CALCULATOR SECTION STYLES ===== */
+    #calculator {
+      padding: 80px 40px;
+      background-color: #161619;
+    }
+
+    #calculator h2 {
+      color: #a6c0af;
+      text-align: center;
+      font-weight: 200;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    .calculator-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    #calorieForm {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #a6c0af;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+    }
+
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #a6c0af;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #eaeaec;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+    }
+
+    .form-group input {
+      width: 93.5%;
+      padding: 12px;
+      border: 2px solid #a6c0af;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #eaeaec;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+    } 
+    
+    select {
+      background-color: #1e1e1e;
+    }
+    
+    select option {
+      background-color: #1e1e1e;
+    }
+
+    .calculate-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #2dffff 0%, #f9f047 100%);
+      border: none;
+      border-radius: 8px;
+      color: #2d3640;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .calculate-btn:hover {
+      opacity: 0.9;
+    }
+
+    .results-container {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .results-container h3 {
+      color: #a6c0af;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .results-container h4 {
+      color: #a6c0af;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 1.5em;
+      margin: 30px 0 20px;
+      text-align: center;
+    }
+
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #3e4a5a;
+    }
+
+    .result-label {
+      color: #eaeaec;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.1em;
+    }
+
+    .result-value {
+      color: #a6c0af;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .macros-container {
+      margin-top: 20px;
+    }
+
+    .macro-item {
+      margin-bottom: 20px;
+    }
+
+    .macro-label {
+      color: #eaeaec;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+      margin-bottom: 8px;
+    }
+
+    .macro-bar {
+      height: 10px;
+      background-color: #3e4a5a;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .macro-fill {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 1s ease-in-out;
+    }
+
+    .protein-fill {
+      background-color: #2dffff;
+    }
+
+    .carbs-fill {
+      background-color: #f9f047;
+    }
+
+    .fat-fill {
+      background-color: #ff6b6b;
+    }
+
+    .macro-value {
+      color: #a6c0af;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 0.9em;
+      text-align: right;
+    }
+
+    /* ===== NUTRITION TIPS SECTION STYLES ===== */
+    #nutrition-tips {
+      padding: 80px 40px;
+      background-color: #161619;
+    }
+
+    #nutrition-tips h2 {
+      color: #a6c0af;
+      text-align: center;
+      font-weight: 200;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    .tips-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tip-card {
+      background-color: #2d3640;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .tip-card h3 {
+      color: #a6c0af;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    .tip-card p {
+      color: #eaeaec;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+   /* ===== END SECTION STYLES ===== */
+    #EndSection {
+      height:100vh;
+      background-attachment: fixed;
+      background-image: url('./imgs/HeroEnd.png');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      width: 100%;
+      position: relative;
+    }
+
+    .End, .space1, .space2, .EndLogo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #EndSection::before{
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); 
+      z-index: 1;
+    }
+
+    #EndSection > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .End h2 {
+      color: #ffffff;
+      margin-left: 50px;
+      margin-top: 70px;
+      font-weight: 400;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 1.9em;
+      text-align: justify;
+      z-index: 10;
+    }
+
+    .End h3 {
+      color: #ffffff;
+      margin-left: 50px;
+      margin-top: 50px;
+      font-weight: 600;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.5em;
+      text-align: justify;
+      z-index: 10;
+    }
+
+    .End p {
+      color: #e4e4e4;
+      margin-left: 50px;
+      margin-top: 20px;
+      line-height: 1;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1em;
+      text-align: justify;
+      line-height: 1.5;
+      z-index: 10;
+    }
+
+    .EndLogo {
+      align-items: flex-end;
+      padding-top: 2rem;
+      padding-right: 2rem;
+    }
+
+    .EndLogo img {
+      max-width: 40%;
+      height: auto;
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    .EndLogo p {
+      color: #ffffff;
+      font-family: "Glacial Indifference", sans-serif;
+      font-size: 1.2em;
+      text-align: center;
+      margin: 0;
+      padding-right: 2rem;
+      margin-top: 23rem;
+    }
+
+    .card0 {
+      display: flex;
+      height: 40px;
+      width: 200px;
+      margin-left: 140px;
+    }
+
+    .EndLogo > .card0 {
+      align-self: center;
+      margin-top: 2rem;
+    }
+
+    .card0 svg {
+      position: absolute;
+      display: flex;
+      width: 60%;
+      height: 100%;
+      font-size: 24px;
+      font-weight: 700;
+      opacity: 1;
+      transition: opacity 0.25s;
+      z-index: 2;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+
+    .card0 .social-link1,.card0 .social-link2,.card0 .social-link3,.card0 .social-link4,.card0 .social-link5 {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25%;
+      color: whitesmoke;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.25s;
+      border-radius: 50px;
+    }
+
+    .card0 svg {
+      transform: scale(1);
+    }
+
+    .card0 .social-link1:hover {
+      background: #f09433;
+      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+      animation: bounce_613 0.4s linear;
+    }
+
+    .card0 .social-link2:hover {
+      background-color: #242c34;
+      animation: bounce_613 0.4s linear;
+    }
+
+    .card0 .social-link3:hover {
+      background-color: #5865f2;
+      animation: bounce_613 0.4s linear;
+    }
+
+    .card0 .social-link4:hover {
+      background-color: #0a66c2;
+      animation: bounce_613 0.4s linear;
+    }
+
+    .card0 .social-link5:hover {
+      background-color: #ff8000;
+      animation: bounce_613 0.4s linear;
+    }
+
+    @keyframes bounce_613 {
+      40% {
+        transform: scale(1.4);
+      }
+
+      60% {
+        transform: scale(0.8);
+      }
+
+      80% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* ===== FOOTER SECTION STYLES ===== */
+    #footer {
+      position: relative;
+      height: auto;
+      background-attachment: fixed;
+      background-image: url('./imgs/HeroEnd.png');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 0;
+    }
+
+    #footer::before{
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); 
+      z-index: 1;
+    }
+
+    #footer > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hr-above-card1 {
+      width: 95%;
+      height: 2px;
+      margin-top: 40px;
+      background: #fff;
+      margin-bottom: 40px;
+      border: none;
+      display: block;
+      margin-bottom: 0%;
+    }
+
+    .card1 {
+      width: 240px;
+      height: 254px;
+      padding: 0 15px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      margin-top: 10%;
+      margin-bottom: 5%;
+      border-radius: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      align-self: center;
+    }
+
+    .card1 > * {
+      margin: 0;
+    }
+
+    .card1__title {
+      font-size: 23px;
+      font-weight: 900;
+      color: #333;
+      font-family: "Glacial Indifference", sans-serif;
+    }
+
+    .card1__content {
+      font-size: 13px;
+      line-height: 18px;
+      color: #333;
+    }
+
+    .card1__form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card1__form input {
+      margin-top: 10px;
+      outline: 0;
+      background: rgb(255, 255, 255);
+      box-shadow: transparent 0px 0px 0px 1px inset;
+      padding: 0.6em;
+      border-radius: 14px;
+      border: 1px solid #333;
+      color: black;
+    }
+
+    .card1__form button {
+      border: 0;
+      background: #111;
+      color: #fff;
+      padding: 0.68em;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sign-up:hover {
+      opacity: 0.8;
+    } 
+
+    .button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(20, 20, 20);
+      border: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 0px 0px 4px rgba(91, 90, 93, 0.253);
+      cursor: pointer;
+      transition-duration: 0.3s;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 2%;
+    }
+
+    .svgIcon {
+      width: 12px;
+      transition-duration: 0.3s;
+    }
+
+    .svgIcon path {
+      fill: white;
+    }
+
+    .button:hover {
+      width: 140px;
+      border-radius: 50px;
+      transition-duration: 0.3s;
+      background-color: rgb(175, 175, 175);
+      align-items: center;
+    }
+
+    .button:hover .svgIcon {
+      transition-duration: 0.3s;
+      transform: translateY(-200%);
+    }
+
+    .button::before {
+      position: absolute;
+      bottom: -20px;
+      content: "Back to Top";
+      color: white;
+      font-size: 0px;
+    }
+
+    .button:hover::before {
+      font-size: 13px;
+      opacity: 1;
+      bottom: unset;
+      transition-duration: 0.3s;
+    }
+
+    /* ===== MOBILE RESPONSIVE STYLES ===== */
+    @media (max-width: 1024px) {
+      .navbar ul {
+        gap: 1rem;
+        font-size: 1em;
+      }
+      
+      .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile Navigation */
+      .mobile-nav-toggle {
+        display: flex;
+      }
+      
+      .navbar {
+        padding: 0.5rem 1rem;
+      }
+      
+      .navbar ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(22, 22, 25, 0.95);
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .navbar ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .navbar ul li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+      
+      /* Home Section */
+      #home h1 {
+        font-size: 2.5em;
+        top: 40%;
+        width: 90%;
+      }
+      
+      /* About Section */
+      #about {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 0;
+      }
+      
+      #left h2 {
+        margin: 30px 20px;
+        font-size: 2em;
+        text-align: center;
+      }
+      
+      #left p {
+        margin: 20px;
+        text-align: center;
+      }
+      
+      #right img {
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 40px;
+      }
+      
+      /* Calculator Section */
+      #calculator {
+        padding: 60px 20px;
+      }
+      
+      #calculator h2 {
+        font-size: 2em;
+      }
+      
+      .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      /* Nutrition Tips Section */
+      #nutrition-tips {
+        padding: 60px 20px;
+      }
+      
+      #nutrition-tips h2 {
+        font-size: 2em;
+      }
+      
+      .tips-container {
+        grid-template-columns: 1fr;
+      }
+      
+      /* End Section */
+      #EndSection {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 0;
+      }
+      
+      .End, .EndLogo {
+        padding: 1rem;
+      }
+      
+      .End h2, .End h3, .End p {
+        margin-left: 0;
+        text-align: center;
+      }
+      
+      .EndLogo {
+        align-items: center;
+        padding-right: 0;
+      }
+      
+      .EndLogo p {
+        margin-top: 2rem;
+      }
+      
+      .card0 {
+        margin-left: 0;
+        justify-content: center;
+      }
+      
+      /* Footer */
+      .card1 {
+        margin: 2rem auto;
+      }
+      
+      .space1, .space2 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #home h1 {
+        font-size: 2em;
+      }
+      
+      .navbar .logo {
+        max-width: 80px;
+      }
+      
+      #left h2, #calculator h2, #nutrition-tips h2 {
+        font-size: 1.8em;
+      }
+      
+      .End h2 {
+        font-size: 1.6em;
+      }
+      
+      .form-group input,
+      .form-group select {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      
+      .calculate-btn {
+        padding: 10px;
+        font-size: 1em;
+      }
+    }
