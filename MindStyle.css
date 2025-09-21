@@ -120,7 +120,6 @@ nav {
   left: 0;
   width: 100%;
   height: 60px;
-  display: flex-start;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
